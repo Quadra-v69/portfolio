@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 180 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 270 60% 50%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 5% 15%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 300 100% 50%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5% 15%;
+    --input: 240 5% 15%;
+    --ring: 180 100% 50%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink;
+}
+
+.border-gradient {
+  @apply border-2 border-transparent bg-clip-border;
+  background-image: linear-gradient(to right, #00f0ff, #8a2be2, #ff00ff);
+}
+
+.glass-effect {
+  @apply bg-black/30 backdrop-blur-md border border-white/10;
+}
+
+.futuristic-card {
+  @apply glass-effect rounded-lg p-6 relative overflow-hidden;
+}
+
+.futuristic-card::before {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-r from-neon-blue/20 via-neon-purple/20 to-neon-pink/20 opacity-0 transition-opacity duration-300;
+}
+
+.futuristic-card:hover::before {
+  @apply opacity-100;
+}
+
+.grid-pattern {
+  background-image: linear-gradient(rgba(0, 240, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.cyber-button {
+  @apply relative px-6 py-3 bg-transparent border-2 border-neon-blue text-neon-blue font-bold 
+  hover:bg-neon-blue/10 transition-all duration-300 overflow-hidden;
+}
+
+.cyber-button::before {
+  content: "";
+  @apply absolute inset-0 bg-neon-blue/20 transform scale-x-0 origin-left transition-transform duration-300;
+}
+
+.cyber-button:hover::before {
+  @apply scale-x-100;
+}
+
+.cyber-button::after {
+  content: "";
+  @apply absolute top-0 right-0 w-1 h-full bg-neon-blue transform translate-x-full transition-transform duration-300 delay-100;
+}
+
+.cyber-button:hover::after {
+  @apply translate-x-0;
+}
+
+.glow-text {
+  text-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+}
+
+.neon-line {
+  @apply h-px bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink;
+  box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+}
+
